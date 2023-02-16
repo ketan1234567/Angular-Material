@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserComponent } from './user/user.component';
 import { MaterialModule } from './Material-Module';
+import { Form1Component } from './form1/form1.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    Form1Component
   ],
   imports: [
     BrowserModule,
