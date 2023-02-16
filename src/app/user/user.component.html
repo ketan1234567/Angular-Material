@@ -1,1 +1,57 @@
-<h1>User Works</h1>
+
+
+<div>
+    <form class="example-form" [formGroup]="UserForm" (ngSubmit)="OnFormSubmit()">
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>First name</mat-label>
+            <input matInput formControlName="first_name" type="text">
+            <mat-error *ngIf="UserForm.get('first_name')?.invalid && UserForm.get('first_name')?.touched">
+                Pleae Enter  FirstName 
+                  </mat-error>
+          </mat-form-field>
+         
+     
+        </td>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="last_name">
+            
+          </mat-form-field></td>
+        </tr></table>
+      
+        <p>
+          <mat-form-field class="example-full-width">
+            <mat-label>Address</mat-label>
+            <textarea matInput placeholder="Ex. 100 Main St" formControlName="address_one">1600 Amphitheatre Pkwy</textarea>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Address 2</mat-label>
+            <textarea matInput formControlName="address_two"></textarea>
+          </mat-form-field>
+        </p>
+      
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Ex. San Francisco" formControlName="city">
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>State</mat-label>
+            <input matInput placeholder="Ex. California" formControlName="state">
+          </mat-form-field></td>
+          <td>
+
+          </td>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>Postal Code</mat-label>
+            <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043" formControlName="postalCode">
+            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+          </mat-form-field></td>
+        </tr></table>
+        <div>
+            <button mat-raised-button color="primary" style="margin: 5px;" type="submit" [disabled]="UserForm.invalid">Register</button>
+            <button mat-raised-button color="accent" style="margin: 5px;" type="submit">Reset</button>
+        </div>
+      </form>
+</div>

@@ -1,0 +1,22 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 90%;
+    margin-top: -50%;
+    margin-left: 131px;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  .mat-mdc-form-field-infix ng-tns-c69-12{
+    width: 125px !important;
+  }
+  .from{
+    margin-top: -65%;
+    margin-left: 40px;
+  }
