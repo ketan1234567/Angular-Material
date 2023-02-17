@@ -1,0 +1,18 @@
+<p>user-dialog works!</p>
+<h2 mat-dialog-title>User Detail</h2>
+<div mat-dialog-content>
+  <p>Name:
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="data.name" placeholder="Enter name">
+    </mat-form-field>
+  </p>
+  <p>City:
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="data.city" placeholder="Enter city">
+    </mat-form-field>
+  </p>
+</div>
+<div mat-dialog-actions class="main">
+  <button mat-button (click)="onCancelUserDailog()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div> 

@@ -14,8 +14,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
+
+
 
 
 
@@ -39,7 +41,14 @@ import { ErrorStateMatcher } from "@angular/material/core";
         MatIconModule,
         MatMenuModule,
         MatButtonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatInputModule,
+        MatDialogModule
+        
 
         
         
