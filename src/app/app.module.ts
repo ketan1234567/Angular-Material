@@ -9,6 +9,9 @@ import { MaterialModule } from './Material-Module';
 import { Form1Component } from './form1/form1.component';
 import { AngularMaterialDialogComponent } from './angular-material-dialog/angular-material-dialog.component';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { Pratice1Component } from './pratice1/pratice1.component';
+import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,14 +19,18 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
     UserComponent,
     Form1Component,
     AngularMaterialDialogComponent,
-    UserDialogComponent
+    UserDialogComponent,
+    Pratice1Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    MatTableModule,
+    HttpClientModule
     
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

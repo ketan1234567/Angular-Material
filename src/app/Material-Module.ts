@@ -16,6 +16,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
+import {MatTableDataSource} from '@angular/material/table';
+
 
 
 
@@ -47,7 +49,9 @@ import { ErrorStateMatcher } from "@angular/material/core";
         MatFormFieldModule,
         MatButtonModule,
         MatInputModule,
-        MatDialogModule
+        MatDialogModule,
+        MatTableModule
+    
         
 
         

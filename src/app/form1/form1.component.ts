@@ -34,8 +34,6 @@ export class Form1Component implements OnInit {
 
     myCity=new FormControl('',Validators.required)
   
-    
-  
   //Create a form
   personForm = this.formBuilder.group({
     username: ['', Validators.required],

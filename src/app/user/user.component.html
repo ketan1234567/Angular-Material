@@ -1,57 +1,90 @@
 
+<mat-form-field class="filter">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
 
-<div>
-    <form class="example-form" [formGroup]="UserForm" (ngSubmit)="OnFormSubmit()">
-        <table class="example-full-width" cellspacing="0"><tr>
-          <td><mat-form-field class="example-full-width">
-            <mat-label>First name</mat-label>
-            <input matInput formControlName="first_name" type="text">
-            <mat-error *ngIf="UserForm.get('first_name')?.invalid && UserForm.get('first_name')?.touched">
-                Pleae Enter  FirstName 
-                  </mat-error>
-          </mat-form-field>
-         
-     
-        </td>
-          <td><mat-form-field class="example-full-width">
-            <mat-label>Last Name</mat-label>
-            <input matInput formControlName="last_name">
+<div class="mat-table">
+  <div class="mat-elevation-z8">
+  
+
+      <!----<div class="demo-button-container">
+        <button mat-raised-button (click)="addData()" class="demo-button">
+          Add data
+        </button>
+        <button
+            mat-raised-button
+            [disabled]="!dataToDisplay.length"
+            (click)="removeData()"
+            class="demo-button">
+          Remove data
+        </button>
+      </div>-->
+
+    
+    <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8 demo-table">
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef > No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+    
+      <!-- Title Column -->
+      <ng-container matColumnDef="first_name">
+        <th mat-header-cell *matHeaderCellDef >  </th>
+        <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+      </ng-container>
+    
+      <!-- Category Column -->
+      <ng-container matColumnDef="last_name">
+        <th mat-header-cell *matHeaderCellDef > Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+      </ng-container>
+    
+      <!-- Writer Column -->
+      <ng-container matColumnDef="address_one">
+        <th mat-header-cell *matHeaderCellDef > Writer </th>
+        <td mat-cell *matCellDef="let element"> {{element.address_one}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="address_two">
+        <th mat-header-cell *matHeaderCellDef > Writer </th>
+        <td mat-cell *matCellDef="let element"> {{element.address_two}} </td>
+      </ng-container>
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef> Writer </th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+      </ng-container>
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef > Writer </th>
+        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+      </ng-container>
+      <ng-container matColumnDef="postalCode">
+        <th mat-header-cell *matHeaderCellDef > Writer </th>
+        <td mat-cell *matCellDef="let element"> {{element.postalCode}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef> Actions</th>
+        <td mat-cell *matCellDef="let element">
+            <div style="">
+                <button mat-raised-button color="primary" (click)="(element.id)">Change</button>||
+                <button mat-raised-button color="accent"(click)="(element.id)" >Delete</button>
+            </div>
             
-          </mat-form-field></td>
-        </tr></table>
-      
-        <p>
-          <mat-form-field class="example-full-width">
-            <mat-label>Address</mat-label>
-            <textarea matInput placeholder="Ex. 100 Main St" formControlName="address_one">1600 Amphitheatre Pkwy</textarea>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Address 2</mat-label>
-            <textarea matInput formControlName="address_two"></textarea>
-          </mat-form-field>
-        </p>
-      
-        <table class="example-full-width" cellspacing="0"><tr>
-          <td><mat-form-field class="example-full-width">
-            <mat-label>City</mat-label>
-            <input matInput placeholder="Ex. San Francisco" formControlName="city">
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width">
-            <mat-label>State</mat-label>
-            <input matInput placeholder="Ex. California" formControlName="state">
-          </mat-form-field></td>
-          <td>
 
-          </td>
-          <td><mat-form-field class="example-full-width">
-            <mat-label>Postal Code</mat-label>
-            <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043" formControlName="postalCode">
-            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-          </mat-form-field></td>
-        </tr></table>
-        <div>
-            <button mat-raised-button color="primary" style="margin: 5px;" type="submit" [disabled]="UserForm.invalid">Register</button>
-            <button mat-raised-button color="accent" style="margin: 5px;" type="submit">Reset</button>
-        </div>
-      </form>
+           
+            
+        </td>
+      </ng-container>
+
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    </table>
+    <!--<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>-->
+  </div>
+
 </div>
+
+

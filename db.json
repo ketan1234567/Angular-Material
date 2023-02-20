@@ -1,0 +1,34 @@
+{
+  "Pratice1": [
+    {
+      "first_name": "ketan",
+      "last_name": "deshmukh",
+      "address_one": "shree mangal karayala Udgir",
+      "address_two": "shree mangal karayala pune",
+      "city": "udgir",
+      "state": "Maharatsra",
+      "postalCode": "413517",
+      "id": 1
+    },
+    {
+      "first_name": "vishal",
+      "last_name": "deshmukh",
+      "address_one": "shree mangal karayala Udgir",
+      "address_two": "shree mangal karayala pune",
+      "city": "pune",
+      "state": "Maharatsra",
+      "postalCode": "413517",
+      "id": 2
+    },
+    {
+      "first_name": "sujit",
+      "last_name": "deshmukh",
+      "address_one": "shree mangal karayala Udgir",
+      "address_two": "shree mangal karayala pune",
+      "city": "mumbai",
+      "state": "Maharatsra",
+      "postalCode": "413517",
+      "id": 3
+    }
+  ]
+}
