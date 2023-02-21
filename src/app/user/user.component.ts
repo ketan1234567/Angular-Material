@@ -5,6 +5,10 @@ import { MatTableDataSource, MatTableDataSource as dataSource } from '@angular/m
 import { ObserversModule } from '@angular/cdk/observers';
 import { Observable, ReplaySubject } from 'rxjs';
 import {DataSource} from '@angular/cdk/collections';
+import { MatIconRegistry } from '@angular/material/icon';
+import * as alertify from 'alertifyjs';
+import { UserDialogComponent } from '../user-dialog/user-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user',
@@ -15,6 +19,7 @@ export class UserComponent implements OnInit {
   ani:any
   dataToDisplay:any
   ELEMENT_DATA:any
+  editdata:any;
   //dataSource:any
   displayedColumns: Array<string> = [];
 
@@ -28,11 +33,12 @@ export class UserComponent implements OnInit {
     console.log(this.dataSource);
     
   }
+  constructor(private service:UserService,private iconRegister:MatIconRegistry, private dialog: MatDialog){
 
 
-
-  constructor(private service:UserService){}
+  }
   UserForm=new FormGroup({
+    id:new FormControl(),
     first_name:new FormControl('',Validators.required),
     last_name:new FormControl('',Validators.required),
     address_one:new FormControl('',Validators.required),
@@ -54,8 +60,7 @@ export class UserComponent implements OnInit {
       this.dataSource = new MatTableDataSource(data);
       ///this.dataSource = new MatTableDataSource<User[]>(this.ani);
       this.ELEMENT_DATA = new MatTableDataSource(data);
-    })
-    
+    }) 
   }
 
 applyFilter(event:Event)
@@ -65,6 +70,44 @@ applyFilter(event:Event)
 console.log(this.dataSource.filter);
 
   
+}
+FunctionUpdate(id:any){
+  this.service.GetElementById(id).subscribe(item => {
+    console.log(this.dialog);
+    
+    this.editdata = item;
+    console.log(this.editdata.id);
+    if (this.editdata != null) {
+    //  this.setValue({ id:this.editdata.id, first_name: this.editdata.first_name, last_name: this.editdata.last_name,address_one:this.editdata.address_one,address_two:this.editdata.address_two,
+      //city:this.editdata.city,state:this.editdata.state,postalCode:this.editdata.postalCode});
+    }
+      //this.updateform.setValue({userid: this.editdata.id, role: this.editdata.role, isActive: this.editdata.isActive});
+    });
+
+let popup=this.dialog.open(UserDialogComponent,{
+  width: '400px',
+  //  height:'300px',
+  exitAnimationDuration: '500ms',
+  enterAnimationDuration: '500ms',
+  data:{
+    id:id
+  }
+})
+popup.afterClosed().subscribe(item => {
+  this.GetAllData();
+});
+}
+
+
+
+FunctionDelete(id: any) {
+  alertify.confirm("Remove user", "do you wnat to remove this user?", () => {
+    this.service.RemoveUser(id).subscribe(item => {
+      this.GetAllData();
+      alertify.success("Removed SuccessFully");
+    });
+
+  }, function () { });
 }
 
 

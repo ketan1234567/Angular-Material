@@ -14,4 +14,11 @@ export class UserService {
   GetAllContactData(): Observable<any>{
     return this.http.get<any>(this.url);
 }
+RemoveUser(id:number):Observable<any>{
+  return this.http.delete(this.url+"/"+id)
+
+}
+GetElementById(id:number){
+  return this.http.get(this.url+"/"+id)
+}
 }

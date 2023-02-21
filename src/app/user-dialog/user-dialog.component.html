@@ -1,18 +1,73 @@
-<p>user-dialog works!</p>
-<h2 mat-dialog-title>User Detail</h2>
-<div mat-dialog-content>
-  <p>Name:
-    <mat-form-field appearance="fill">
-      <input matInput [(ngModel)]="data.name" placeholder="Enter name">
+<h3 class="all-form">5. Person Reactive Form</h3>
+<form [formGroup]="UpdateForm" (ngSubmit)="onFormSubmit()" class="all-form">
+  <div>
+    <ng-template let-data>
+      hello {{data.id}}
+    </ng-template>
+    
+    <mat-form-field>
+      <input matInput placeholder="first_name" formControlName="first_name" [errorStateMatcher]="esMatcher">
+      <!--<mat-error *ngIf="first_name.hasError('required')">
+        Username is required.
+      </mat-error>-->
+    </mat-form-field>  
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput  formControlName="last_name" placeholder="last_name" 
+        [errorStateMatcher]="esMatcher">
+    <!----<mat-error *ngIf="last_name?.hasError('required')">
+        Password is required.
+      </mat-error>-->
     </mat-form-field>
-  </p>
-  <p>City:
-    <mat-form-field appearance="fill">
-      <input matInput [(ngModel)]="data.city" placeholder="Enter city">
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput  formControlName="address_one" placeholder="address_one" 
+        [errorStateMatcher]="esMatcher">
+     <!--- <mat-error *ngIf="address_one?.hasError('required')">
+        Password is required.
+      </mat-error>-->
     </mat-form-field>
-  </p>
-</div>
-<div mat-dialog-actions class="main">
-  <button mat-button (click)="onCancelUserDailog()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
-</div> 
+  </div> 
+  <div>
+    <mat-form-field>
+      <input matInput  formControlName="address_two" placeholder="address_two" 
+        [errorStateMatcher]="esMatcher">
+      <!--<mat-error *ngIf="address_two?.hasError('required')">
+        Password is required.
+      </mat-error>-->
+    </mat-form-field>
+  </div> 
+  <div>
+    <mat-form-field>
+      <input matInput  formControlName="city" placeholder="city" 
+        [errorStateMatcher]="esMatcher">
+      <!--<mat-error *ngIf="city?.hasError('required')">
+        Password is required.
+      </mat-error>-->
+    </mat-form-field>
+  </div> 
+  <div>
+    <mat-form-field>
+      <input matInput  formControlName="state" placeholder="state" 
+        [errorStateMatcher]="esMatcher">
+     <!---- <mat-error *ngIf="state?.hasError('required')">
+        Password is required.
+      </mat-error>-->
+    </mat-form-field>
+  </div>   
+  <div>
+    <mat-form-field>
+      <input matInput  formControlName="postalCode" placeholder="postalCode" 
+        [errorStateMatcher]="esMatcher">
+     <!--<mat-error *ngIf="postalCode?.hasError('required')">
+        Password is required.
+      </mat-error>-->   
+    </mat-form-field>
+  </div>  
+  <div>   
+    <button mat-raised-button class="submit-f">Update</button>
+    <button mat-raised-button class="submit-f">CanCel</button>
+  </div>  
+</form> 

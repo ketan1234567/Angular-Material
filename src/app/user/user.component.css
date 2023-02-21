@@ -23,17 +23,13 @@
 
 
   table {
-    width: 90%;
-    margin-top: -50%;
+    width: 100%;
   }
   
   .mat-mdc-form-field {
     font-size: 14px;
     width: 100%;
   }
-  .mat-table{
-    padding: 30px;
-  }
   .filter{
-    
+    margin-top: 10px;
   }
