@@ -7,6 +7,9 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  UpdateUser(editdata: any) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http:HttpClient) { }
   url='http://localhost:3000/Pratice1';
@@ -20,5 +23,8 @@ RemoveUser(id:number):Observable<any>{
 }
 GetElementById(id:number){
   return this.http.get(this.url+"/"+id)
+}
+UpdateData(data:any):Observable<any>{
+  return this.http.put(this.url+"/"+data.id,data);
 }
 }

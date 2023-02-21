@@ -7,7 +7,7 @@
       "address_two": "shree mangal karayala pune",
       "city": "mumbai",
       "state": "Maharatsra",
-      "postalCode": "413517",
+      "postalCode": "999999",
       "id": 3
     },
     {
@@ -19,16 +19,6 @@
       "state": "Maharatsra",
       "postalCode": "413517",
       "id": 4
-    },
-    {
-      "first_name": "rawat",
-      "last_name": "deshmukh",
-      "address_one": "shree mangal karayala Udgir",
-      "address_two": "shree mangal karayala pune",
-      "city": "mumbai",
-      "state": "Maharatsra",
-      "postalCode": "413517",
-      "id": 5
     }
   ]
 }

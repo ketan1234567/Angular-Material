@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from './user.service';
-import { MatTableDataSource, MatTableDataSource as dataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource, MatTableDataSource as dataSource } from '@angular/material/table';
 import { ObserversModule } from '@angular/cdk/observers';
 import { Observable, ReplaySubject } from 'rxjs';
 import {DataSource} from '@angular/cdk/collections';
@@ -9,6 +9,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import * as alertify from 'alertifyjs';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user',
@@ -20,10 +21,12 @@ export class UserComponent implements OnInit {
   dataToDisplay:any
   ELEMENT_DATA:any
   editdata:any;
+  vishaldata:any;
   //dataSource:any
+    @ViewChild(MatTable) table: MatTable<any> | undefined;
   displayedColumns: Array<string> = [];
 
-  dataSource: MatTableDataSource<any> = new MatTableDataSource();
+  dataSource: MatTableDataSource<any>= new MatTableDataSource();
   
   ngOnInit(): void {
  
@@ -33,10 +36,15 @@ export class UserComponent implements OnInit {
     console.log(this.dataSource);
     
   }
-  constructor(private service:UserService,private iconRegister:MatIconRegistry, private dialog: MatDialog){
+  constructor(private service:UserService, private dialog: MatDialog){
 
 
   }
+
+ // dataSource = [...this.vishaldata];
+
+
+
   UserForm=new FormGroup({
     id:new FormControl(),
     first_name:new FormControl('',Validators.required),
